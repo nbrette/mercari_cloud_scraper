@@ -1,0 +1,44 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: [--fix=lf]
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.50.0
+    hooks:
+      - id: terraform_fmt
+        files: \S*\.tf$
+        name: Format Terraform files
+  - repo: https://github.com/asottile/seed-isort-config
+    rev: v2.2.0
+    hooks:
+      - id: seed-isort-config
+        name: Populate the `known_third_party` `isort` setting.
+
+  - repo: local
+    hooks:
+      - id: black
+        name: Run black
+        language: python
+        minimum_pre_commit_version: 2.9.2
+        require_serial: true
+        entry: black
+        args: [--safe]
+        types_or: [python, pyi]
+      - id: flake8
+        name: Run flake8
+        description: "`flake8` is a command-line utility for enforcing style consistency across Python projects."
+        entry: flake8
+        language: python
+        types: [python]
+      - id: pylint
+        name: Run pylint
+        language: python
+        entry: pylint
+        args: [--rcfile=pylintrc]
+        files: src/\S*
+        types: [python]
+        require_serial: true

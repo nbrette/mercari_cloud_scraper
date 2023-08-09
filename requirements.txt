@@ -1,0 +1,12 @@
+pre-commit==2.20.0
+flake8==5.0.4
+flake8-colors==0.1.9
+pylint==2.15.4
+black==22.10.0
+
+
+firebase-admin==6.2.0
+pytest-playwright==0.3.3
+fastapi==0.100.1
+uvicorn==0.23.2
+google-cloud-pubsub==2.18.2

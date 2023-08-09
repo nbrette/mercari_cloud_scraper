@@ -1,0 +1,15 @@
+---
+steps:
+    - name: gcr.io/cloud-builders/docker
+      args: [ build,
+              -t,
+              $_SERVICE_IMAGE,
+              --cache-from,
+              $_SERVICE_IMAGE:$_SERVICE_IMAGE_VERSION,
+              .,
+              -f,
+              $_DOCKERFILE_PATH]
+    - name: gcr.io/cloud-builders/docker
+      args: [push, $_SERVICE_IMAGE]
+substitutions:
+    _SERVICE_IMAGE_VERSION: latest

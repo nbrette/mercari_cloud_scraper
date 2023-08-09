@@ -1,0 +1,4 @@
+[flake8]
+max-line-length = 120
+ignore = E731,W504,W503,E266,E203,C0103
+exclude = .svn,CVS,.bzr,.hg,.git,__pycache__,.eggs,*.egg,*/_vendor/*,venv,.venv, .yml, .yaml

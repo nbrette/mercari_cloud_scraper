@@ -1,0 +1,12 @@
+venv
+src/dev.py
+
+**/__pycache__/
+
+
+**/.terraform/
+scripts/terraform/.terraform.lock.hcl
+
+.vscode
+
+.env.local
